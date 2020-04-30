@@ -47,6 +47,13 @@ public class PBEUtilsUnitTestCase {
         SecretKeyFactory factory = SecretKeyFactory.getInstance(pbeAlgo);
 
         char[] password = "somearbitrarycrazystringthatdoesnotmatter".toCharArray();
+        /**
+        * for PBEParameterSpec(salt, iteration), the iteration should be at least 1000 for security concern.
+        * also, it is to use a random generated salt instead of a constant value, we suggest the code
+        * SecureRandom random = new SecureRandom();
+        * byte [] salt = new byte[16];
+        * random.nextBytes(salt);
+        */
         PBEParameterSpec cipherSpec = new PBEParameterSpec(salt.getBytes(), iterationCount);
         PBEKeySpec keySpec = new PBEKeySpec(password);
         SecretKey cipherKey = factory.generateSecret(keySpec);
