@@ -42,6 +42,7 @@ public class PBEUtilsUnitTestCase {
 
         String salt = "18273645";
         int iterationCount = 56;
+        int iterationCount = 1000;
 
         String pbeAlgo = PicketLinkFederationConstants.PBE_ALGORITHM;
         SecretKeyFactory factory = SecretKeyFactory.getInstance(pbeAlgo);
